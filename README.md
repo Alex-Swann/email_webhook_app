@@ -1,4 +1,4 @@
-# Lostmy.name
+# Lostmy.name - Web Hook Data Statistics Page
 
 A simple one page application built using Ruby on Rails which processes web hook data, stores it into a suitable data store and displays the relevant information for historical reference.
 
