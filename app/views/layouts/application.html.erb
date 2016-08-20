@@ -7,8 +7,16 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <header class='header'>
+      <%= image_tag "logo.svg" %>
+    </header>
 
   <%= yield %>
+
+    <hr noshade class='divider'> 
+    <footer class='footer'>
+      <span id='logoFooter'><%= image_tag "footer.svg" %></span>
+    </footer>
 
   </body>
 </html>

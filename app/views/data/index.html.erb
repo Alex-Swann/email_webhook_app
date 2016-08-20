@@ -1,28 +1,93 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Data</h1>
+<div id="dataContainer">
 
-<table>
-  <thead>
-    <tr>
-      <th>Address</th>
-      <th>Email type</th>
-      <th>Event</th>
-      <th>Timestamp</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Mail Data</h1>
 
-  <tbody>
-    <% @data.each do |datum| %>
+  <h2>Statistics</h2>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= datum.address %></td>
-        <td><%= datum.email_type %></td>
-        <td><%= datum.event %></td>
-        <td><%= datum.timestamp %></td>
+        <th>Emails sent |</th>
+        <th>Emails opened |</th>
+        <th>No. of clicks</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @organiser.send %></td>
+        <td><%= @organiser.opened %></td>
+        <td><%= @organiser.click %></td>
+      </tr>
+    </tbody>
+  </table><br>
+
+  <table id="dialsTable">
+    <thead>
+      <tr>
+        <th>Open rate per email</th>
+        <th>Click rate per email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <div class="container">
+            <svg id="svg1">
+              <circle cx="100" cy="100" r="85.5"  fill="#ed8488" />
+            </svg>
+            <div id="percent1"></div>
+            <p class="container--hidden"><input maxlength="2"
+               type="text" id="input1"
+               value="<%= @data.length == 0 ? 0 : @organiser.percentage(@organiser.opened) %>"/></p>
+            <a class="btn" id="run1"></a>
+          </div>
+
+        </td>
+        <td>
+          <div class="container">
+            <svg id="svg2">
+              <circle cx="100" cy="100" r="85.5"  fill="#ed8488" />
+            </svg>
+            <div id="percent2"></div>
+            <p class="container--hidden"><input maxlength="2"
+               type="text" id="input2"
+               value="<%= @data.length == 0 ? 0 : @organiser.percentage(@organiser.click) %>"/></p>
+            <a class="btn" id="run2"></a>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id='latestMail'>
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Email type</th>
+        <th>Event</th>
+        <th>Timestamp</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @data.length != 0 %>
+        <% @data[-15..-1].reverse.each do |datum| %>
+          <tr>
+            <td><%= datum.address %></td>
+            <td><%= datum.email_type %></td>
+            <td><%= datum.event %></td>
+            <td><%= datum.timestamp %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
