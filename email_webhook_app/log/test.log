@@ -295,3 +295,54 @@ Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
   [1m[35m (0.9ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36mDatum Load (2.2ms)[0m  [1mSELECT  "data".* FROM "data"  ORDER BY "data"."id" ASC LIMIT 1[0m
   [1m[35m (0.9ms)[0m  ROLLBACK
+  [1m[36m (125.7ms)[0m  [1mDROP DATABASE IF EXISTS "email_webhook_app_test"[0m
+  [1m[36m (454.1ms)[0m  [1mCREATE DATABASE "email_webhook_app_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+  [1m[36m (18.5ms)[0m  [1mCREATE TABLE "data" ("id" serial primary key, "address" character varying, "email_type" character varying, "event" character varying, "timestamp" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.7ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160817103324')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-08-20 20:27:55 +0100
+Processing by DataController#index as HTML
+  [1m[36mDatum Load (1.2ms)[0m  [1mSELECT "data".* FROM "data"[0m
+  Rendered data/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 332ms (Views: 311.7ms | ActiveRecord: 4.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-08-20 20:27:55 +0100
+Processing by DataController#index as HTML
+  [1m[35mDatum Load (0.3ms)[0m  SELECT "data".* FROM "data"
+  Rendered data/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-08-20 20:27:55 +0100
+Processing by DataController#index as HTML
+  [1m[36mDatum Load (0.3ms)[0m  [1mSELECT "data".* FROM "data"[0m
+  Rendered data/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2016-08-20 20:27:55 +0100
+Processing by DataController#index as HTML
+  [1m[35mDatum Load (0.4ms)[0m  SELECT "data".* FROM "data"
+  Rendered data/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2016-08-20 20:27:55 +0100
+Processing by DataController#index as HTML
+  [1m[36mDatum Load (0.4ms)[0m  [1mSELECT "data".* FROM "data"[0m
+  Rendered data/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "data" ("address", "email_type", "event", "timestamp", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["address", "barney@lostmy.name"], ["email_type", "Shipment"], ["event", "send"], ["timestamp", 1471535385], ["created_at", "2016-08-20 19:27:55.738570"], ["updated_at", "2016-08-20 19:27:55.738570"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mDatum Load (2.0ms)[0m  [1mSELECT  "data".* FROM "data"  ORDER BY "data"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
