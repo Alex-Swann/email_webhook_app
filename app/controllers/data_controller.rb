@@ -1,10 +1,12 @@
+require_relative '../models/data_organiser.rb'
+
 class DataController < ApplicationController
   before_action :set_datum, only: [:show, :edit, :update, :destroy]
 
-  # GET /data
-  # GET /data.json
   def index
     @data = Datum.all
+    @organiser = DataOrganiser.new(@data)
+    @organiser.organise
   end
 
   def create
@@ -20,5 +22,5 @@ class DataController < ApplicationController
 
     render nothing: true
   end
-  
+
 end
