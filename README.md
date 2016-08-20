@@ -2,11 +2,14 @@
 
 A simple one page application built using Ruby on Rails which processes web hook data, stores it into a suitable data store and displays the relevant information for historical reference.
 
-## Setup
+## Setup Gems, Development & Test Databases
+#### N.B. - this is assumed PostgreSQL is already installed and setup.
 ```
 $ git clone git@github.com:Alex-Swann/email_webhook_app.git
 $ cd email_webhook_app
 $ bundle install
+$ bin/rake db:setup
+$ bin/rake db:setup RAILS_ENV=test
 ```
 ## To generate sample data and run program
 #### In one cmd tab from the root directory run
