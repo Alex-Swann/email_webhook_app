@@ -14,6 +14,7 @@ $ bin/rake db:setup RAILS_ENV=test
 ## To generate sample data and run program
 #### In one cmd tab from the root directory run
 ```
+$ cd llirdnam_master
 $ go run llirdnam/llirdnam.go http://localhost:3000/data
 ```
 #### In another cmd tab from the root directory of the repo
